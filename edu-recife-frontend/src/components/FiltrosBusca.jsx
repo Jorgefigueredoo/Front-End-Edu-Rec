@@ -1,4 +1,11 @@
-const FiltrosBusca = ({ ano, setAno, distrito, setDistrito, busca, setBusca }) => {
+const FiltrosBusca = ({
+  ano,
+  setAno,
+  distrito,
+  setDistrito,
+  busca,
+  setBusca,
+}) => {
   return (
     <div className="filtros">
       <div className="filtros-grupo">
@@ -29,7 +36,7 @@ const FiltrosBusca = ({ ano, setAno, distrito, setDistrito, busca, setBusca }) =
         <label>Buscar escola</label>
         <input
           type="text"
-          placeholder="Nome da escola..."
+          placeholder="Nome ou código da escola..."
           value={busca}
           onChange={(e) => setBusca(e.target.value)}
         />
