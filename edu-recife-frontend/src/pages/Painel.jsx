@@ -22,15 +22,22 @@ const Painel = () => {
     <div className="painel">
       {/* HEADER */}
       <header className="header">
-        <div className="header-esquerda">
-          <div className="header-logo">RECIFE</div>
-          <div>
-            <h1>Matrículas Escolares</h1>
-            <p>Secretaria de Educação · Dados Abertos do Município</p>
+        <div className="header-pattern" aria-hidden="true" />
+        <div className="header-conteudo">
+          <div className="header-esquerda">
+            <div className="header-icone">
+              <img src="/logo-recife.png" alt="Prefeitura do Recife" width="72" height="72" />
+            </div>
+            <div>
+              <div className="header-tag">RECIFE · PAINEL EDUCACIONAL</div>
+              <h1>Matrículas Escolares</h1>
+              <p>Secretaria de Educação · Dados Abertos do Município</p>
+            </div>
           </div>
-        </div>
-        <div className="header-badge">
-          Fonte: Portal de Dados Abertos do Recife
+          <div className="header-badge">
+            <span className="header-badge-dot" />
+            Dados atualizados · Portal Aberto
+          </div>
         </div>
       </header>
 
