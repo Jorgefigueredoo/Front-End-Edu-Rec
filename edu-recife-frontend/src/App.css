@@ -627,3 +627,101 @@ a.detalhe-endereco:hover {
   flex: 1;
   margin-bottom: 0;
 }
+
+/* RESPONSIVO MOBILE */
+@media (max-width: 768px) {
+
+  /* HEADER */
+  .header-conteudo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .header-icone img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .header h1 {
+    font-size: 18px;
+  }
+
+  .header p {
+    font-size: 11px;
+  }
+
+  .header-badge {
+    align-self: flex-start;
+  }
+
+  /* FILTROS */
+  .filtros-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filtros {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filtros-grupo select,
+  .filtros-grupo input {
+    min-width: 100%;
+    width: 100%;
+  }
+
+  .btn-exportar-pdf {
+    width: 100%;
+    padding: 12px;
+  }
+
+  /* CARDS */
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .card-valor {
+    font-size: 28px;
+  }
+
+  /* GRÁFICOS */
+  .graficos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* TABELA */
+  thead th:nth-child(3),
+  thead th:nth-child(4),
+  tbody td:nth-child(3),
+  tbody td:nth-child(4) {
+    display: none;
+  }
+
+  td, th {
+    padding: 10px 10px;
+    font-size: 12px;
+  }
+
+  /* PAGINAÇÃO */
+  .pag-numeros {
+    display: none;
+  }
+
+  /* DETALHE MODAL */
+  .detalhe-modal {
+    padding: 20px;
+    margin: 0;
+    border-radius: 12px;
+  }
+
+  .detalhe-nome {
+    font-size: 16px;
+  }
+
+  .detalhe-total-valor {
+    font-size: 28px;
+  }
+}
