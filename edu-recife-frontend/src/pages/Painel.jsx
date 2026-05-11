@@ -60,19 +60,21 @@ const Painel = () => {
           <div className="cards-grid">
             <CardResumo
               titulo="Total de Escolas"
-              valor={resumo.totalEscolas.toLocaleString('pt-BR')}
+              valor={escolas.length.toLocaleString('pt-BR')}
               sub="Rede municipal do Recife"
               cor="#1351b4"
             />
             <CardResumo
               titulo="Total de Matrículas"
-              valor={resumo.totalMatriculas.toLocaleString('pt-BR')}
+              valor={escolas.reduce((s, e) => s + e.totalMatriculas, 0).toLocaleString('pt-BR')}
               sub={`Ano letivo ${ano}`}
               cor="#168821"
             />
             <CardResumo
               titulo="Média por Escola"
-              valor={resumo.mediaAlunos.toLocaleString('pt-BR')}
+              valor={escolas.length > 0
+                ? Math.round(escolas.reduce((s, e) => s + e.totalMatriculas, 0) / escolas.length).toLocaleString('pt-BR')
+                : '0'}
               sub="Alunos matriculados"
               cor="#e8a000"
             />

@@ -69,6 +69,13 @@ export const useMatriculas = () => {
     setEscolasFiltradas(resultado);
   }, [busca, distrito, todasEscolas]);
 
+  // Filtra distritos para o gráfico quando distrito muda
+  const distritosVisiveis = distrito
+    ? distritos.filter((d) =>
+        d.distrito.toLowerCase().includes(distrito.toLowerCase())
+      )
+    : distritos;
+
   return {
     ano,
     setAno,
@@ -78,7 +85,7 @@ export const useMatriculas = () => {
     setBusca,
     resumo,
     escolas: escolasFiltradas,
-    distritos,
+    distritos: distritosVisiveis,
     evolucao,
     carregando,
     erro,
