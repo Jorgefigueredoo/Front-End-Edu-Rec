@@ -3,6 +3,7 @@ import GraficoBarras from '../components/GraficoBarras';
 import GraficoLinha from '../components/GraficoLinha';
 import FiltrosBusca from '../components/FiltrosBusca';
 import TabelaEscolas from '../components/TabelaEscolas';
+import BotaoExportarPDF from '../components/BotaoExportarPDF';
 import { useMatriculas } from '../hooks/useMatriculas';
 
 const Painel = () => {
@@ -48,47 +49,61 @@ const Painel = () => {
         {/* CARREGANDO */}
         {carregando && <div className="carregando">Carregando dados...</div>}
 
-        {/* FILTROS */}
-        <FiltrosBusca
-          ano={ano} setAno={setAno}
-          distrito={distrito} setDistrito={setDistrito}
-          busca={busca} setBusca={setBusca}
-        />
+        {/* FILTROS + BOTÃO PDF */}
+        <div className="filtros-row">
+          <FiltrosBusca
+            ano={ano} setAno={setAno}
+            distrito={distrito} setDistrito={setDistrito}
+            busca={busca} setBusca={setBusca}
+          />
+          <BotaoExportarPDF
+            ano={ano}
+            distrito={distrito}
+            escolas={escolas}
+            distritos={distritos}
+          />
+        </div>
 
-        {/* KPI CARDS */}
-        {resumo && (
-          <div className="cards-grid">
-            <CardResumo
-              titulo="Total de Escolas"
-              valor={escolas.length.toLocaleString('pt-BR')}
-              sub="Rede municipal do Recife"
-              cor="#1351b4"
-            />
-            <CardResumo
-              titulo="Total de Matrículas"
-              valor={escolas.reduce((s, e) => s + e.totalMatriculas, 0).toLocaleString('pt-BR')}
-              sub={`Ano letivo ${ano}`}
-              cor="#168821"
-            />
-            <CardResumo
-              titulo="Média por Escola"
-              valor={escolas.length > 0
-                ? Math.round(escolas.reduce((s, e) => s + e.totalMatriculas, 0) / escolas.length).toLocaleString('pt-BR')
-                : '0'}
-              sub="Alunos matriculados"
-              cor="#e8a000"
-            />
+        {/* CARDS E GRÁFICOS EXPORTÁVEIS */}
+        <div id="graficos-exportaveis">
+
+          {/* KPI CARDS */}
+          {resumo && (
+            <div className="cards-grid">
+              <CardResumo
+                titulo="Total de Escolas"
+                valor={escolas.length.toLocaleString('pt-BR')}
+                sub="Rede municipal do Recife"
+                cor="#1351b4"
+              />
+              <CardResumo
+                titulo="Total de Matrículas"
+                valor={escolas.reduce((s, e) => s + e.totalMatriculas, 0).toLocaleString('pt-BR')}
+                sub={`Ano letivo ${ano}`}
+                cor="#168821"
+              />
+              <CardResumo
+                titulo="Média por Escola"
+                valor={escolas.length > 0
+                  ? Math.round(escolas.reduce((s, e) => s + e.totalMatriculas, 0) / escolas.length).toLocaleString('pt-BR')
+                  : '0'}
+                sub="Alunos matriculados"
+                cor="#e8a000"
+              />
+            </div>
+          )}
+
+          {/* GRÁFICOS */}
+          <div className="graficos-grid">
+            <GraficoBarras dados={distritos} />
+            <GraficoLinha dados={evolucao} />
           </div>
-        )}
 
-        {/* GRÁFICOS */}
-        <div className="graficos-grid">
-          <GraficoBarras dados={distritos} />
-          <GraficoLinha dados={evolucao} />
         </div>
 
         {/* TABELA */}
         <TabelaEscolas escolas={escolas} />
+
       </div>
     </div>
   );
