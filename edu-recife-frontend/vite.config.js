@@ -18,12 +18,12 @@ export default defineConfig({
         start_url: '/',
         icons: [
           {
-            src: 'logo-recife.png',
+            src: 'recife.png',
             sizes: '192x192',
             type: 'image/png',
           },
           {
-            src: 'logo-recife.png',
+            src: 'recife.png',
             sizes: '512x512',
             type: 'image/png',
           },
