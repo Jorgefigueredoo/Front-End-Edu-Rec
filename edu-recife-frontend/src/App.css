@@ -592,3 +592,38 @@ a.detalhe-endereco:hover {
   color: #1351b4;
   flex-shrink: 0;
 }
+
+/* BOTÃO EXPORTAR PDF */
+.btn-exportar-pdf {
+  padding: 9px 18px;
+  background: #1351b4;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: system-ui, sans-serif;
+}
+
+.btn-exportar-pdf:hover:not(:disabled) {
+  background: #0d3f8f;
+}
+
+.btn-exportar-pdf:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.filtros-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.filtros-row .filtros {
+  flex: 1;
+  margin-bottom: 0;
+}
