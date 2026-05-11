@@ -27,7 +27,7 @@ const Painel = () => {
         <div className="header-conteudo">
           <div className="header-esquerda">
             <div className="header-icone">
-              <img src="/logo-recife.png" alt="Prefeitura do Recife" width="72" height="72" />
+              <img src="/logo-recife.png" alt="Prefeitura do Recife" width="80" height="80" />
             </div>
             <div>
               <div className="header-tag">RECIFE · PAINEL EDUCACIONAL</div>
