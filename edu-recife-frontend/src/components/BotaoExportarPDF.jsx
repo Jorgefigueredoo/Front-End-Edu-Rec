@@ -86,8 +86,11 @@ const BotaoExportarPDF = ({ ano, distrito, escolas, distritos }) => {
           pdf.rect(0, posY - 4, pdfWidth, 8, "F");
         }
 
+        // Código: exibe apenas se for numérico (max 6 chars), senão mostra "-"
+        const codigo = escola.codigoEscola.length <= 6 ? escola.codigoEscola : '-';
+
         pdf.setFontSize(8);
-        pdf.text(String(escola.codigoEscola), 10, posY);
+        pdf.text(codigo, 10, posY);
         pdf.text(escola.nomeEscola.substring(0, 45), 25, posY);
         pdf.text(escola.distrito, 120, posY);
         pdf.text(escola.bairro.substring(0, 18), 150, posY);
