@@ -638,10 +638,10 @@ a.detalhe-endereco:hover {
     gap: 12px;
   }
 
-  .header-icone img {
-    width: 48px;
-    height: 48px;
-  }
+ .header-icone img {
+  width: 72px !important;
+  height: 72px !important;
+}
 
   .header h1 {
     font-size: 18px;
